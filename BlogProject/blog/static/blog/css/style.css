@@ -1,0 +1,20 @@
+body{
+    background-color: #2a2f35;
+    font-family: 'Nunito', sans-serif;
+    color: #f1f4f7;
+}
+.jumbo-color {
+    background-color: #25292f;  
+    
+}
+.form-text {
+    color: #f1f4f7;
+    
+}
+.form {
+    align-items: center;
+}
+.form-control {
+    background-color: #25292f;
+    color: #f1f4f7;
+}
