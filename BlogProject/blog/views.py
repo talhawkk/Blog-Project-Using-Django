@@ -5,6 +5,7 @@ from .forms import SignUpForm, LoginForm, PostForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import Post
+from django.contrib.auth.models import Group
 # Create your views here.
 def home(request):
     post=Post.objects.all()
@@ -34,7 +35,9 @@ def user_signup(request):
     if request.method == 'POST':
         form=SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user=form.save()
+            group=Group.objects.get(name='Author')
+            user.groups.add(group)
             messages.success(request,'You have been Registered Successfully')
             # form=SignUpForm()
     else:
