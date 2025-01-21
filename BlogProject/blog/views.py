@@ -22,7 +22,11 @@ def contactus(request):
 def dashboard(request):
     if request.user.is_authenticated:
         post=Post.objects.all()
-        return render(request, 'blog/dashboard.html',{'posts':post})
+        user=request.user
+        full_name=user.get_full_name()
+        gps=user.groups.all()
+
+        return render(request, 'blog/dashboard.html',{'posts':post,'full_name':full_name,'gps':gps})
     else:
         return HttpResponseRedirect('/login/')
 
