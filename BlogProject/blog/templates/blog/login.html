@@ -22,11 +22,18 @@
             {% endif %}
     {% endfor %}
         <button type="submit" class="btn btn-primary">Login</button>
-
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger" role="alert">{{error}}</p>
+                {% endfor %}
+            {% endif %}
     </form>
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-success" role="alert">
+            print(message)
+            print("messgage")
+            message
+            <div class="alert alert-danger" role="alert">
                 {{message}}
             </div>
         {% endfor %}

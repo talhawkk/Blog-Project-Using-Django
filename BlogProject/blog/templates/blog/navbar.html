@@ -18,18 +18,21 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contactus' %}">contact</a>
           </li>
+          {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'dashboard' %}">dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">logout</a>
           </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'signup' %}">signup</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">login</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>

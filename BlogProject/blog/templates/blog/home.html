@@ -9,26 +9,28 @@
         Home Page
     </h2>
 
-<div class="jumbotron jumbotron-fluid jumbo-color" >
-    <div class="container">
-        <h1 class="display-4 font-weight-bold">
-            This is blog title
-         </h1>
-         <p class="lead">Lorem ipsum dolor sit amet consectetur <br> adipisicing elit.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit <br> br
-            . Excepturi. Eaque sequi consequatur officiis consectetur minima doloremque.</p>
-    </div>
-
-
-   
-</div>
+<!-- Display messages dynamically -->
 {% if messages %}
-{% for message in messages %}
-    <div class="alert alert-danger" role="alert">
-        {{message}}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Display posts dynamically -->
+{% for post in posts %}
+    <div class="jumbotron jumbotron-fluid jumbo-color">
+        <div class="container">
+            <h2 class="display-4 font-weight-bold">
+                {{ post.title }}
+            </h2>
+            <p class="lead" style="font-size: large;">{{ post.content }}</p>
+        </div>
     </div>
 {% endfor %}
-{% endif %}
+
+
 </div>
 
 {% endblock content %}
