@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, LoginForm, PostForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import Post
+from .models import Post,Category
 from django.contrib.auth.models import Group
 # Create your views here.
 def home(request):
     post=Post.objects.all()
-    return render(request, 'blog/home.html',{'posts':post})
+    categories = Category.objects.all()
+    return render(request, 'blog/home.html',{'posts':post,'categories':categories})
 
 def aboutus(request):
     
@@ -116,3 +117,9 @@ def readblog(request, id):
     pi=Post.objects.get(pk=id)
     blog=pi
     return render(request, 'blog/readblog.html',{'post':blog})
+
+
+def category_posts(request, category_id):
+    category = get_object_or_404(Category, id=category_id)
+    posts = Post.objects.filter(category=category)
+    return render(request, 'blog/category_posts.html', {'posts': posts, 'category': category})

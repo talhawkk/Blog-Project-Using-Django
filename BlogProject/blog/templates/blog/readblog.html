@@ -5,24 +5,20 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-9 mx-auto">
-                <!-- Post Title -->
                 <h2 class="fw-bold text-primary mb-4 text-center">{{ post.title }}</h2>
 
-                <!-- Post Content -->
                 <div class="post-content">
                     <p class="lead text-muted" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
                         {{ post.content }}
                     </p>
                 </div>
 
-                <!-- Post Date -->
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <span class="text-muted small">Published on {{ post.date|date:"F j, Y" }}</span>
                 </div>
 
                 <hr class="my-5">
 
-                <!-- Navigation Buttons -->
                 <div class="d-flex justify-content-between">
                     <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm px-4 py-2 rounded-3 shadow-sm">Back to Home</a>
                     <a href="#" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-3 shadow-sm">Leave a Comment</a>

@@ -1,12 +1,89 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block content %}
+{% block content1 %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">About Us</h1>
+        <p class="text-secondary fs-5">Learn more about who we are and what we do!</p>
+    </div>
 
-<div class="col-sm-10">
-    <h2 class="text-center my-5 ms-5">
-        About Us
-    </h2>
+    <div class="row align-items-center gy-4">
+        <div class="col-md-3">
+            <img src="{% static 'images/about-us.jpg' %}" alt="About Us" class="img-fluid rounded shadow-sm">
+        </div>
+
+        <div class="col-md-9">
+            <h2 class="fw-bold text-dark">Welcome to TALHAWKK's Blog!</h2>
+            <p class="text-muted lead text-justify">
+                At TALHAWKK's Blog, we aim to provide valuable insights, latest updates, and engaging content across a variety of categories, including Technology, Lifestyle, Travel, and more. Our mission is to inspire and educate our readers while keeping them informed about the trends that matter most.
+            </p>
+            <p class="text-muted">
+                This platform is created with love and passion to build a community where knowledge is shared and creativity is celebrated. We believe in the power of stories and information to bring about positive change and create meaningful connections.
+            </p>
+            <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Explore Blog</a>
+        </div>
+    </div>
+
+    <div class="row mt-5 gy-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-dark">Our Vision</h3>
+                    <p class="text-muted">
+                        To be a leading platform for knowledge sharing and a trusted source of information for readers worldwide.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-dark">Our Mission</h3>
+                    <p class="text-muted">
+                        To provide high-quality, engaging, and diverse content that informs, inspires, and entertains our audience.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-dark">Our Values</h3>
+                    <p class="text-muted">
+                        Creativity, authenticity, and a commitment to delivering value to our readers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h2 class="fw-bold text-center text-primary">Meet Our Team</h2>
+        <p class="text-secondary text-center fs-5">The passionate individuals behind the scenes</p>
+        <div class="row gy-4 mt-4">
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/team1.jpg' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
+                <h5 class="fw-bold">Talha Abbas</h5>
+                <p class="text-muted small">Founder & Content Creator</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/team2.jpg' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
+                <h5 class="fw-bold">Talha Abbas</h5>
+                <p class="text-muted small">Editor & Strategist</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/team3.jpg' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
+                <h5 class="fw-bold">Talha Abbas</h5>
+                <p class="text-muted small">Designer & Developer</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <h3 class="fw-bold text-dark">Ready to Dive In?</h3>
+        <p class="text-muted fs-5">Explore our blog and join the conversation!</p>
+        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Visit Blog</a>
+    </div>
 </div>
-
-{% endblock content %}
+{% endblock content1 %}

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm, UsernameField
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post,Category
 from django.utils.translation import gettext, gettext_lazy as _
 
 class SignUpForm(UserCreationForm):
@@ -33,7 +33,16 @@ class LoginForm(AuthenticationForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model=Post
-        fields=['title','content']
-        widgets ={'title' : forms.TextInput(attrs={'class':'form-control'}),
+        fields=['category','title','content']
+        widgets ={
+                  'category' : forms.Select(attrs={'class':'form-control'}),
+                  'title' : forms.TextInput(attrs={'class':'form-control'}),
                   'content' : forms.Textarea(attrs={'class':'form-control'}),
                   }
+        category = forms.ModelChoiceField(
+            queryset=Category.objects.all(),
+            empty_label="Select a category",
+            widget=forms.Select(attrs={
+            'class': 'form-select'
+            })
+        )

@@ -9,12 +9,10 @@
     </h2>
     <form action="" method="post" novalidate >
         {% csrf_token %}
-        <!-- {{form.as_p}} -->
         {% for i in form %}
         <div class="form-group">
             <label for="{{i.id_for_label}}">{{i.label}}</label>
             {{i}} 
-            <!-- {{i.errors}} -->
             <br>
             {% if i.errors %}
                 <small style="color: red;">{{i.errors}}</small>
