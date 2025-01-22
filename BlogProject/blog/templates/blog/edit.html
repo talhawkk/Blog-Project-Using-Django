@@ -1,32 +1,36 @@
-{% extends 'blog/base.html' %} 
+{% extends 'blog/base.html' %}
 {% block content %}
-<div class="col-sm-10">
-    <h3 class="my-5">Dashboard/Edit</h3>
-</div>
-<form action="" method="POST" novalidate >
-    {% csrf_token %}
-    {% for i in form %}
-    <div class="form-group">
-        <label for="{{i.id_for_label}}">{{i.label}}</label>
-        {{i}} 
-        <br>
-        {% if i.errors %}
-            <small style="color: red;">{{i.errors}}</small>
-        {% endif %}
-{% endfor %}
-    <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
-        {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-2">
+            <h3 class="my-5">Dashboard/Edit</h3>
+            <form action="" method="POST" novalidate >
+                {% csrf_token %}
+                {% for i in form %}
+                <div class="form-group">
+                    <label for="{{i.id_for_label}}">{{i.label}}</label>
+                    {{i}} 
+                    <br>
+                    {% if i.errors %}
+                    <small style="color: red;">{{i.errors}}</small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
+
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
                 <p class="alert alert-danger" role="alert">{{error}}</p>
-            {% endfor %}
-        {% endif %}
-</form>
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+
 {% if messages %}
     {% for message in messages %}
-        print(message)
-        print("messgage")
-        message
         <div class="alert alert-danger" role="alert">
             {{message}}
         </div>

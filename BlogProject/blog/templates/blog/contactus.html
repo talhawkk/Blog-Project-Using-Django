@@ -3,37 +3,44 @@
 
 {% block content1 %}
 <div class="container py-5">
-<div class="row">
-  <div class="col-md-10 mx-auto">
-      <h1 class="text-center my-5 ms-5" style="font-weight: bold;">
-        Contact Us Page
-      </h1>
-      <form>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Name</label>
-          <input type="text" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Address</label>
-          <input type="text" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Message</label>
-          <input type="text" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-</div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center my-5 fw-bold text-primary" id="contact">Contact Us</h1>
 
+            <form action="" method="get" class="p-4 bg-light rounded shadow-lg" novalidate>
+                <div class="mb-4">
+                    <label for="name" class="form-label text-secondary fw-bold">Name</label>
+                    <div class="form-control-container">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="form-label text-secondary fw-bold">Email</label>
+                    <div class="form-control-container">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="address" class="form-label text-secondary fw-bold">Address</label>
+                    <div class="form-control-container">
+                        <input type="text" id="address" name="address" class="form-control" placeholder="">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="message" class="form-label text-secondary fw-bold">Message</label>
+                    <div class="form-control-container">
+                        <textarea id="message" name="message" rows="5" class="form-control" placeholder="Write your message"></textarea>
+                    </div>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-purple btn-lg fw-bold shadow-sm">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock content1 %}
