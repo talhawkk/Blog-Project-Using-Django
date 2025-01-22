@@ -50,7 +50,6 @@
                 <td>{{ post.category }}</td>
                 <td style="text-align: justify;">{{ post.content|truncatewords:110 }}</td>
                 <td>
-                    <!-- Action buttons -->
                     <a href="{% url 'edit' post.id %}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Edit this post">
                         <i class="fas fa-edit"></i> Edit
                     </a>

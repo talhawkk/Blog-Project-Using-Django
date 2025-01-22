@@ -19,14 +19,137 @@ body{
     color: #f1f4f7;
 }
 
-.card {
-    height: 100%; /* Make cards stretch to equal height */
-}
+
 
 .card-title {
-    font-size: 1.2rem; /* Adjust title size */
+    font-size: 1.2rem; 
 }
 
 .card-text {
-    text-align: justify; /* Align the text for better readability */
+    text-align: justify; 
 }
+
+
+/* login and signup forms k liye css */
+
+body {
+    background-color: #f4f7fa; 
+}
+
+.navbar {
+    background-color: white !important; 
+    border-bottom: 1px solid #eee; 
+}
+
+.form-control-container input,
+.form-control-container select,
+.form-control-container textarea {
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    padding: 12px 15px;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-container input:focus,
+.form-control-container select:focus,
+.form-control-container textarea:focus {
+    border-color: #6a4cfc; 
+    box-shadow: 0 0 8px rgba(106, 76, 252, 0.5); 
+    outline: none;
+}
+
+.btn-purple {
+    background-color: #6a4cfc; 
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: #4f3ac6; 
+    box-shadow: 0 0 10px rgba(106, 76, 252, 0.5); 
+}
+
+.btn-purple:active {
+    background-color: #39229b;
+    transform: scale(0.98); 
+}
+
+.text-danger {
+    color: #dc3545; 
+    font-size: 0.875rem;
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.bg-light {
+    background-color: #ffffff;
+}
+
+#author {
+    color: #6a4cfc; 
+}
+
+.mb-4 {
+    margin-bottom: 20px !important;
+}
+
+
+/* footer ki css */
+
+footer {
+    background-color: #222; /* Dark background */
+    color: #bbb; /* Light text color */
+  }
+  
+  footer h5,
+  footer h4 {
+    color: #ffc107; /* Highlight color */
+  }
+  
+  footer ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  footer ul li a {
+    color: #ffc107; /* Link color */
+    transition: color 0.3s;
+  }
+  
+  footer ul li a:hover {
+    color: #ffcd39; /* Hover effect */
+  }
+  
+  footer .btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  footer .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #222;
+  }
+  
+  footer hr {
+    border-color: rgba(255, 255, 255, 0.1); /* Subtle line */
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.85rem; /* Small text for copyright */
+  }
+  
+  

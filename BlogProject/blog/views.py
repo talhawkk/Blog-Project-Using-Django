@@ -37,18 +37,20 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
 def user_signup(request):
-    if request.method == 'POST':
-        form=SignUpForm(request.POST)
-        if form.is_valid():
-            user=form.save()
-            group=Group.objects.get(name='Author')
-            user.groups.add(group)
-            messages.success(request,'You have been Registered Successfully')
-            # form=SignUpForm()
+    if request.user.is_authenticated and request.user.is_superuser:
+        if request.method == 'POST':
+            form=SignUpForm(request.POST)
+            if form.is_valid():
+                user=form.save()
+                group=Group.objects.get(name='Author')
+                user.groups.add(group)
+                messages.success(request,'You have been Registered Successfully')
+                # form=SignUpForm()
+        else:
+            form=SignUpForm()
+        return render(request, 'blog/signup.html',{'form':form})
     else:
-        form=SignUpForm()
-    return render(request, 'blog/signup.html',{'form':form})
-
+        return HttpResponseRedirect('/login/')
 def user_login(request):
     # logout(request)
     if not request.user.is_authenticated:

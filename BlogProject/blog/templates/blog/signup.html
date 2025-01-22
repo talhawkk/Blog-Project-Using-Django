@@ -5,31 +5,27 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <!-- Page Title -->
-            <h1 class="text-center my-5 fw-bold text-primary">Become an Author</h1>
+            <h1 class="text-center my-5 fw-bold text-primary" id="author">Add an Author</h1>
 
-            <!-- Signup Form -->
-            <form action="" method="post" class="p-4 bg-light rounded shadow" novalidate>
+            <form action="" method="post" class="p-4 bg-light rounded shadow-lg" novalidate>
                 {% csrf_token %}
                 {% for i in form %}
-                <div class="mb-3">
-                    <label for="{{ i.id_for_label }}" class="form-label fw-bold text-secondary">{{ i.label }}</label>
-                    <div class="form-control">
+                <div class="mb-4">
+                    <label for="{{ i.id_for_label }}" class="form-label text-secondary fw-bold">{{ i.label }}</label>
+                    <div class="form-control-container">
                         {{ i }}
                     </div>
                     {% if i.errors %}
-                    <div class="text-danger mt-1 small">{{ i.errors }}</div>
+                    <div class="text-danger mt-2 small">{{ i.errors }}</div>
                     {% endif %}
                 </div>
                 {% endfor %}
 
-                <!-- Submit Button -->
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg fw-bold">Sign Up</button>
+                    <button type="submit" class="btn btn-purple btn-lg fw-bold shadow-sm">Add</button>
                 </div>
             </form>
 
-            <!-- Messages Section -->
             {% if messages %}
             <div class="mt-4">
                 {% for message in messages %}
