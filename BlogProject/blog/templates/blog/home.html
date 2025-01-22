@@ -1,36 +1,56 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block content %}
-<!-- <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> -->
+{% block welcome %}
+    <!-- Page Title -->
+    <div class="text-center mt-5 mb-5">
+        <h1 class="fw-bold text-primary" style="font-size: xxx 0l;">Welcome to TALHAWKK's Blog</h1>
+        <p class="text-secondary fs-5">Stay updated with the latest posts and exciting content!</p>
+    </div>
 
-<div class="col-sm-10">
-    <h2 class="text-center my-5">
-        Home Page
-    </h2>
-
-<!-- Display messages dynamically -->
-{% if messages %}
+    <!-- Display Messages Dynamically -->
+    {% if messages %}
     {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}" role="alert">
-            {{ message }}
-        </div>
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     {% endfor %}
-{% endif %}
+    {% endif %}
+{% endblock welcome %}
 
-<!-- Display posts dynamically -->
-{% for post in posts %}
-    <div class="jumbotron jumbotron-fluid jumbo-color">
-        <div class="container">
-            <h2 class="display-4 font-weight-bold">
-                {{ post.title }}
-            </h2>
-            <p class="lead" style="font-size: large;">{{ post.content }}</p>
+{% block content %}
+<div class="container">
+    <!-- Blog Posts Section -->
+    <div class="d-flex justify-content-center mt-auto">
+        <div class="col-lg-12 ">
+            <h1 class="text-center text-dark fw-bold mb-4">Latest Blog Posts</h1>
+
+            {% for post in posts %}
+            <div class="card mb-4 shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="card-title fw-bold text-dark">{{ post.title }}</h3>
+                    <p class="card-text text-muted">
+                        {{ post.content|truncatewords:110 }} <!-- Truncates content to 110 words -->
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted small">Published on {{ post.date }}</span>
+                        <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-{% endfor %}
-
-
 </div>
-
 {% endblock content %}
+{% block side %}
+<div class="sidebar mt-5">
+    <h5>Categories</h5>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="#">Tech</a></li>
+        <li class="list-group-item"><a href="#">Lifestyle</a></li>
+        <li class="list-group-item"><a href="#">Travel</a></li>
+    </ul>
+</div>
+{% endblock side %}

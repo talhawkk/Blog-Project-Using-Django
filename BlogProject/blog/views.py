@@ -32,7 +32,7 @@ def dashboard(request):
 
 def user_logout(request):
     logout(request)
-    messages.success(request,'You have been Logged out Successfully')
+    messages.success(request,'You have been Logged out Successfully!!')
     return HttpResponseRedirect('/')
 
 def user_signup(request):
@@ -78,7 +78,7 @@ def edit(request,id):
             form=PostForm(request.POST,instance=pi)
             if form.is_valid():
                 form.save()
-                messages.success(request,'your changes has been updated')
+                messages.success(request,'Your changes has been updated')
                 return HttpResponseRedirect('/dashboard')
         else:
             pi=Post.objects.get(pk=id)
@@ -94,7 +94,7 @@ def addpost(request):
             if form.is_valid():
                 # form=form.cleaned_data()
                 form.save()
-                messages.success(request,'you blog has been published')
+                messages.success(request,'Your blog has been Published')
                 return HttpResponseRedirect('/dashboard/')
         else:
             form=PostForm()
@@ -107,7 +107,7 @@ def delete(request,id):
         if request.method=='POST':
             pi=Post.objects.get(pk=id)
             pi.delete()
-            messages.success(request,'you blog has been deleted')
+            messages.success(request,'Your Blog has been Deleted')
             return HttpResponseRedirect('/dashboard')
     else:
         return HttpResponseRedirect('/login/')
