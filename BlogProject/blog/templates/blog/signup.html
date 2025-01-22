@@ -1,32 +1,46 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block content %}
+{% block content1 %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Page Title -->
+            <h1 class="text-center my-5 fw-bold text-primary">Become an Author</h1>
 
-<div class="col-sm-10">
-    <h2 class="text-center my-5 ms-5">
-        Become an Author
-    </h2>
-    <form action="" method="post" novalidate >
-        {% csrf_token %}
-        {% for i in form %}
-        <div class="form-group">
-            <label for="{{i.id_for_label}}">{{i.label}}</label>
-            {{i}} 
-            <br>
-            {% if i.errors %}
-                <small style="color: red;">{{i.errors}}</small>
-            {% endif %}
-    {% endfor %}
-        <button type="submit" class="btn btn-primary">Signup</button>
-    </form>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{message}}
+            <!-- Signup Form -->
+            <form action="" method="post" class="p-4 bg-light rounded shadow" novalidate>
+                {% csrf_token %}
+                {% for i in form %}
+                <div class="mb-3">
+                    <label for="{{ i.id_for_label }}" class="form-label fw-bold text-secondary">{{ i.label }}</label>
+                    <div class="form-control">
+                        {{ i }}
+                    </div>
+                    {% if i.errors %}
+                    <div class="text-danger mt-1 small">{{ i.errors }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg fw-bold">Sign Up</button>
+                </div>
+            </form>
+
+            <!-- Messages Section -->
+            {% if messages %}
+            <div class="mt-4">
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% endif %}
+            {% endif %}
+        </div>
+    </div>
 </div>
-
-{% endblock content %}
+{% endblock content1 %}

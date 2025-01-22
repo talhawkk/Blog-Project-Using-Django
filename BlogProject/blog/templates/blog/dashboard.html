@@ -20,12 +20,11 @@
     <p>{{group.name}}</p>
 {% endfor %}
 </div>
-
-
 {% endblock side %}
 
 
 {% block content %}
+    
     <h1 class="fw-bold text-primary text-center mt-5 mb-4" style="font-size: xxx 0l;">Dashboard</h1>
 
     <a href="{% url 'addpost' %}" class="btn btn-warning btn-sm" style="margin-left: 90%;" >Add Post</a>
@@ -37,6 +36,7 @@
         <thead class="thead-dark">
             <tr class="text-center">
                 <th scope="col">ID</th>
+                <th scope="col">Category</th>
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
                 <th scope="col">Actions</th>
@@ -47,6 +47,7 @@
             <tr class="text-center align-middle">
                 <th scope="row">{{ post.id }}</th>
                 <td>{{ post.title }}</td>
+                <td>{{ post.category }}</td>
                 <td style="text-align: justify;">{{ post.content|truncatewords:110 }}</td>
                 <td>
                     <!-- Action buttons -->
