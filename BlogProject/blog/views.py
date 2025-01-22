@@ -111,3 +111,8 @@ def delete(request,id):
             return HttpResponseRedirect('/dashboard')
     else:
         return HttpResponseRedirect('/login/')
+    
+def readblog(request, id):
+    pi=Post.objects.get(pk=id)
+    blog=pi
+    return render(request, 'blog/readblog.html',{'post':blog})
