@@ -45,8 +45,8 @@ def user_signup(request):
                 user=form.save()
                 group=Group.objects.get(name='Author')
                 user.groups.add(group)
-                messages.success(request,'You have been Registered Successfully')
-                # form=SignUpForm()
+                messages.success(request,'An Author has been added Successfully')
+                return HttpResponseRedirect('/dashboard/')
         else:
             form=SignUpForm()
         return render(request, 'blog/signup.html',{'form':form})
