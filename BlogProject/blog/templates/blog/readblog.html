@@ -2,32 +2,27 @@
 {% load static %}
 
 {% block content1 %}
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-9 mx-auto">
-                <h2 class="fw-bold text-primary mb-4 text-center">{{ post.title }}</h2>
-                {% if post.image %}
-                <div class="text-center">
-                <img src="{{ post.image.url }}" class="img-fluid rounded shadow-lg" alt="{{ post.title }}">
-                </div>
-                {% endif %}
-                <div class="post-content">
-                    <p class="lead text-muted" style="text-align: justify; font-size: 1.1rem; line-height: 1.8;">
-                        {{ post.content }}
-                    </p>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mt-4">
-                    <span class="text-muted small">Published on {{ post.date|date:"F j, Y" }}</span>
-                </div>
-
-                <hr class="my-5">
-
-                <div class="d-flex justify-content-between">
-                    <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm px-4 py-2 rounded-3 shadow-sm">Back to Home</a>
-                    <a href="#" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-3 shadow-sm">Leave a Comment</a>
-                </div>
-            </div>
-        </div>
+<div class="container content-wrapper py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2 class="fw-bold mb-4 text-center" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">{{ post.title }}</h2>
+      {% if post.image %}
+      <div class="text-center mb-5">
+        <img src="{{ post.image.url }}" class="img-fluid rounded" alt="{{ post.title }}" style="max-height: 500px; object-fit: cover; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+      </div>
+      {% endif %}
+      <div class="post-content">
+        <p class="lead" style="color: #a8b5d4; text-align: justify; font-size: 1.2rem; line-height: 1.8;">{{ post.content }}</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-5">
+        <span class="small" style="color: #a8b5d4;">Published on {{ post.date|date:"F j, Y" }}</span>
+      </div>
+      <hr class="my-5" style="border-color: #4a6ea8;">
+      <div class="d-flex justify-content-between">
+        <a href="{% url 'home' %}" class="btn btn-outline-light rounded-pill px-4" style="border-color: #4a6ea8; color: #4a6ea8;">Back to Home</a>
+        <a href="#" class="btn btn-outline-light rounded-pill px-4" style="border-color: #4a6ea8; color: #4a6ea8;">Leave a Comment</a>
+      </div>
     </div>
+  </div>
+</div>
 {% endblock content1 %}

@@ -1,117 +1,154 @@
 {% extends 'blog/base.html' %}
 {% load static %}
-{% block message %}
-
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-success" role="alert">
-    {{message}}
-</div>
-{% endfor %}
-{% endif %}
-</div>
-{% endblock message %}
-
-{% block side %}
-
-<div class="card shadow-lg border-0 rounded-4 p-4 text-center bg-white mt-5">
-  <div class="mb-4">
-    <h5 class="fw-bold text-uppercase text-secondary">Profile</h5>
-  </div>
-
-  <h4 class="fw-bold text-primary mb-2">{{ full_name }}</h4>
-  <p class="text-muted small mb-4">Your Profile Overview</p>
-
-  <hr class="border border-secondary border-opacity-25">
-
-  <div class="mt-3">
-    <h6 class="text-uppercase text-secondary fw-bold mb-3">Groups</h6>
-    <ul class="list-unstyled mb-0">
-      {% for group in gps %}
-      <li class="text-secondary mb-2">
-        <i class="bi bi-check-circle-fill text-success me-2"></i>{{ group.name }}
-      </li>
-      {% empty %}
-      <li class="text-muted">No groups assigned</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-{% endblock side %}
-{% block side2 %}
-<div class="card shadow-lg border-0 rounded-4 p-4 bg-white mt-5">
-    <div class="mb-4 text-center">
-      <h5 class="fw-bold text-uppercase text-primary">Categories</h5>
-      <p class="text-muted small">Explore blog categories</p>
-    </div>
-  
-    <ul class="list-group list-group-flush">
-      {% for category in categories %}
-      <li class="list-group-item border-0 px-0 py-2">
-        <a href="{% url 'category_posts' category.id %}" class="text-secondary text-decoration-none d-flex align-items-center category-link">
-          <i class="bi bi-folder-fill text-primary me-2"></i>
-          <span>{{ category.name }}</span>
-        </a>
-      </li>
-      {% empty %}
-      <li class="list-group-item border-0 px-0 py-2">
-        <p class="text-muted small">No categories available</p>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endblock side2 %}
-
 
 {% block content %}
-    
-    <h1 class="fw-bold text-primary text-center mt-5 mb-4" style="font-size: xxx 0l;">Dashboard</h1>
+<div class="container content-wrapper py-5">
+  <!-- Profile Section (Top, Left-Aligned, Narrower Card) -->
+  <div class="row mb-5">
+    <div class="col-md-4">
+      <h1 class="fw-bold mb-3" style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Profile</h1>
+      <div class="card border-0" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); padding: 20px;">
+        <h4 class="fw-bold mt-2" style="color: #4a6ea8;">
+          {% if full_name %}
+            {{ full_name }}
+          {% else %}
+            {{ request.user.username }}
+          {% endif %}
+        </h4>
+        <p class="small" style="color: #a8b5d4;">Your Dashboard Overview</p>
+        <hr style="border-color: #4a6ea8;">
+        <h6 class="text-uppercase fw-bold mb-3" style="color: #4a6ea8;">Groups Assigned</h6>
+        <ul class="list-unstyled" style="color: #a8b5d4;">
+          {% for group in gps %}
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>{{ group.name }}</li>
+          {% empty %}
+          <li>No groups assigned</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
 
-    <a href="{% url 'addpost' %}" class="btn btn-warning btn-sm" style="margin-left: 90%;" >Add Post</a>
-    <h4 class="text-center alert alert-info mt-3">
-        Show Post Information
-    </h4>
-    {% if posts %}
-    <table class="table table-hover table-striped bg-white shadow-sm rounded">
-        <thead class="thead-dark">
+    <!-- Posts Section (Right Side, Full Width Below Profile) -->
+    <div class="col-md-8">
+      <div class="text-end mb-4">
+        <a href="{% url 'addpost' %}" class="btn btn-sm rounded-pill px-4" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Add Post</a>
+      </div>
+      <h4 class="text-center alert alert-info rounded-pill mb-4" style="background: #2d3e50; border: 1px solid #4a6ea8; color: #a8b5d4;">Your Posts</h4>
+      {% if posts %}
+      <div class="table-responsive">
+        <table class="table table-dark table-hover table-striped rounded posts-table" style="background: #1a2333; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); color: #a8b5d4; border-color: #415a77;">
+          <thead style="background: #4a6ea8; color: #fff;">
             <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Category</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Actions</th>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-            {% for post in posts %}
-            <tr class="text-center align-middle">
-                <th scope="row">{{ post.id }}</th>
-                <td>{{ post.title }}</td>
+          </thead>
+          <tbody>
+            {% if posts|length > 3 %}
+              {% for post in posts|slice:":3" %}
+              <tr class="text-center align-middle post-row" style="border-bottom: 1px solid #415a77; display: table-row;">
+                <td>{{ post.id }}</td>
                 <td>{{ post.category }}</td>
-                <td style="text-align: justify;">{{ post.content|truncatewords:110 }}</td>
+                <td>{{ post.title }}</td>
+                <td style="text-align: justify;">{{ post.content|truncatewords:30 }}</td>
                 <td>
-                    <a href="{% url 'edit' post.id %}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" title="Edit this post">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    {% if perms.blog.delete_Post %}
-                    <form action="{% url 'delete' post.id %}" method="POST" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="top" title="Delete this post">
-                            <i class="fas fa-trash-alt"></i> Delete
-                        </button>
-                    </form>
-                    {% endif %}
+                  <a href="{% url 'edit' post.id %}" class="btn btn-sm rounded-pill px-3 edit-btn" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Edit</a>
+                  {% if perms.blog.delete_Post %}
+                  <form action="{% url 'delete' post.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm rounded-pill px-3 delete-btn" style="background: #e74c3c; color: #fff; transition: all 0.3s ease;">Delete</button>
+                  </form>
+                  {% endif %}
                 </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4" class="text-center text-muted">
-                    No posts available.
+              </tr>
+              {% endfor %}
+              <tr class="text-center">
+                <td colspan="5">
+                  <button class="btn btn-outline-light btn-lg rounded-pill load-more-btn" style="border-color: #4a6ea8; color: #4a6ea8; transition: all 0.3s ease;">Load More</button>
                 </td>
+              </tr>
+            {% else %}
+              {% for post in posts %}
+              <tr class="text-center align-middle post-row" style="border-bottom: 1px solid #415a77; display: table-row;">
+                <td>{{ post.id }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.title }}</td>
+                <td style="text-align: justify;">{{ post.content|truncatewords:30 }}</td>
+                <td>
+                  <a href="{% url 'edit' post.id %}" class="btn btn-sm rounded-pill px-3 edit-btn" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Edit</a>
+                  {% if perms.blog.delete_Post %}
+                  <form action="{% url 'delete' post.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm rounded-pill px-3 delete-btn" style="background: #e74c3c; color: #fff; transition: all 0.3s ease;">Delete</button>
+                  </form>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            {% endif %}
+            {% for post in posts|slice:"3:" %}
+            <tr class="text-center align-middle post-row" style="border-bottom: 1px solid #415a77; display: none;">
+              <td>{{ post.id }}</td>
+              <td>{{ post.category }}</td>
+              <td>{{ post.title }}</td>
+              <td style="text-align: justify;">{{ post.content|truncatewords:30 }}</td>
+              <td>
+                <a href="{% url 'edit' post.id %}" class="btn btn-sm rounded-pill px-3 edit-btn" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Edit</a>
+                {% if perms.blog.delete_Post %}
+                <form action="{% url 'delete' post.id %}" method="POST" style="display: inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-sm rounded-pill px-3 delete-btn" style="background: #e74c3c; color: #fff; transition: all 0.3s ease;">Delete</button>
+                </form>
+                {% endif %}
+              </td>
             </tr>
             {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
-    
-{% endblock content  %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <p class="text-center" style="color: #a8b5d4;">No posts available.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Load More Functionality (Dashboard) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    const postRows = document.querySelectorAll('.post-row');
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        postRows.forEach(row => row.style.display = 'table-row');
+        loadMoreBtn.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+<!-- JavaScript for Hover Effects on Hero Section -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+      heroContent.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.opacity = '0.9';
+        this.querySelector('h1').style.textShadow = '0 0 25px rgba(74, 110, 168, 0.8)';
+        this.querySelector('p').style.textShadow = '0 0 10px rgba(168, 181, 212, 0.5)';
+      });
+      heroContent.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+        this.style.opacity = '1';
+        this.querySelector('h1').style.textShadow = '0 0 10px rgba(74, 110, 168, 0.3)';
+        this.querySelector('p').style.textShadow = 'none';
+      });
+    }
+  });
+</script>
+{% endblock content %}

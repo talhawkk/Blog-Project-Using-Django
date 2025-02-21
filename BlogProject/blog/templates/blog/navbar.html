@@ -1,41 +1,92 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background: #1a2333; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
   <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="#">TALHAWKK</a>
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#" style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #4a6ea8; transition: all 0.3s ease;">
+      <img src="{% static 'blog/images/logo-icon.png' %}" alt="Logo" style="width: 45px; height: 45px; margin-right: 12px;" onerror="this.style.display='none';">
+      TALHAWKK
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link active text-dark" href="{% url 'home' %}">Home</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'home' %}" style="color: #1e58e0; position: relative;"><b>Home</b>
+            <span class="nav-underline"></span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'aboutus' %}">About</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'aboutus' %}" style="color: #1e58e0; position: relative;"><b>About</b>
+            <span class="nav-underline"></span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'contactus' %}">Contact</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'contactus' %}" style="color: #1e58e0; position: relative;"><b>Contact</b>
+            <span class="nav-underline"></span>
+          </a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'dashboard' %}">Dashboard</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'dashboard' %}" style="color: #1e58e0; position: relative;"><b>Dashboard</b>
+            <span class="nav-underline"></span>
+          </a>
         </li>
         {% endif %}
         {% if request.user.is_superuser %}
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'signup' %}">Add Author</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'signup' %}" style="color: #1e58e0; position: relative;"><b>Add Author</b>
+            <span class="nav-underline"></span>
+          </a>
         </li>
         {% endif %}
         {% if not request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'login' %}">Login</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'login' %}" style="color: #1e58e0; background: #4a6ea8; border-radius: 25px; padding: 10px 25px; transition: all 0.3s ease;">Login</a>
         </li>
         {% endif %}
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link text-danger" href="{% url 'logout' %}">Logout</a>
+          <a class="nav-link fw-medium px-4 py-2" href="{% url 'logout' %}" style="color: #fff; background: #5c7db8; border-radius: 25px; padding: 10px 25px; transition: all 0.3s ease;">Logout</a>
         </li>
         {% endif %}
       </ul>
     </div>
   </div>
 </nav>
+
+<style>
+  .nav-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #4a6ea8;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover .nav-underline {
+    width: 60%;
+  }
+
+  .nav-link:hover {
+    color: #4a6ea8 !important;
+  }
+
+  .navbar-brand:hover {
+    color: #5c7db8 !important;
+  }
+
+  @media (max-width: 991px) {
+    .navbar-nav {
+      padding: 20px;
+      background: #1a2333;
+      border-radius: 0 0 15px 15px;
+    }
+    .nav-link {
+      text-align: center;
+      padding: 15px !important;
+    }
+  }
+</style>

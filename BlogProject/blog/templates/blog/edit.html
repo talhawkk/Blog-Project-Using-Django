@@ -1,40 +1,29 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class="container my-5">
-    <div class="row">
-        <div class="col-lg-10 offset-lg-2">
-            <h3 class="my-5">Dashboard/Edit</h3>
-            <form action="" method="POST" novalidate >
-                {% csrf_token %}
-                {% for i in form %}
-                <div class="form-group">
-                    <label for="{{i.id_for_label}}">{{i.label}}</label>
-                    {{i}} 
-                    <br>
-                    {% if i.errors %}
-                    <small style="color: red;">{{i.errors}}</small>
-                    {% endif %}
-                </div>
-                {% endfor %}
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
-
-                {% if form.non_field_errors %}
-                {% for error in form.non_field_errors %}
-                <p class="alert alert-danger" role="alert">{{error}}</p>
-                {% endfor %}
-                {% endif %}
-            </form>
-        </div>
-    </div>
+<div class="container content-wrapper py-5">
+  <h3 class="mb-5 fw-bold" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Edit Post</h3>
+  <div class="card border-0 p-5" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+    <form action="" method="POST" novalidate>
+      {% csrf_token %}
+      {% for i in form %}
+      <div class="form-group mb-4">
+        <label for="{{i.id_for_label}}" class="form-label fw-bold" style="color: #4a6ea8;">{{i.label}}</label>
+        {{i}}
+        {% if i.errors %}
+        <small class="text-danger" style="background: rgba(74, 110, 168, 0.2); padding: 5px 10px; border-radius: 5px;">{{i.errors}}</small>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn rounded-pill px-4 py-2" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Update</button>
+        <a href="{% url 'dashboard' %}" class="btn rounded-pill px-4 py-2" style="background: #5c7db8; color: #fff; transition: all 0.3s ease;">Cancel</a>
+      </div>
+    </form>
+  </div>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-danger mt-4 rounded-pill" role="alert">{{message}}</div>
+  {% endfor %}
+  {% endif %}
 </div>
-
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-danger" role="alert">
-            {{message}}
-        </div>
-    {% endfor %}
-{% endif %}
-
 {% endblock content %}

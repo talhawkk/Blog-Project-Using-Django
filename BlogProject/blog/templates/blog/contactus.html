@@ -2,45 +2,32 @@
 {% load static %}
 
 {% block content1 %}
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1 class="text-center my-5 fw-bold text-primary" id="contact">Contact Us</h1>
-
-            <form action="" method="get" class="p-4 bg-light rounded shadow-lg" novalidate>
-                <div class="mb-4">
-                    <label for="name" class="form-label text-secondary fw-bold">Name</label>
-                    <div class="form-control-container">
-                        <input type="text" id="name" name="name" class="form-control" placeholder="">
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label for="email" class="form-label text-secondary fw-bold">Email</label>
-                    <div class="form-control-container">
-                        <input type="email" id="email" name="email" class="form-control" placeholder="">
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label for="address" class="form-label text-secondary fw-bold">Address</label>
-                    <div class="form-control-container">
-                        <input type="text" id="address" name="address" class="form-control" placeholder="">
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label for="message" class="form-label text-secondary fw-bold">Message</label>
-                    <div class="form-control-container">
-                        <textarea id="message" name="message" rows="5" class="form-control" placeholder="Write your message"></textarea>
-                    </div>
-                </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-purple btn-lg fw-bold shadow-sm">Submit</button>
-                </div>
-            </form>
+<div class="container content-wrapper py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center mb-5 fw-bold" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Contact Us</h1>
+      <form action="" method="get" class="p-4 rounded" style="background: #2d3e50; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border-radius: 15px;">
+        <div class="mb-4">
+          <label for="name" class="form-label fw-bold" style="color: #4a6ea8;">Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" style="background: #1a2333; border: none; color: #e0e0e0; border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);">
         </div>
+        <div class="mb-4">
+          <label for="email" class="form-label fw-bold" style="color: #4a6ea8;">Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" style="background: #1a2333; border: none; color: #e0e0e0; border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);">
+        </div>
+        <div class="mb-4">
+          <label for="address" class="form-label fw-bold" style="color: #4a6ea8;">Address</label>
+          <input type="text" id="address" name="address" class="form-control" placeholder="Your Address" style="background: #1a2333; border: none; color: #e0e0e0; border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);">
+        </div>
+        <div class="mb-4">
+          <label for="message" class="form-label fw-bold" style="color: #4a6ea8;">Message</label>
+          <textarea id="message" name="message" rows="5" class="form-control" placeholder="Your Message" style="background: #1a2333; border: none; color: #e0e0e0; border-radius: 10px; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);"></textarea>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-lg rounded-pill fw-bold" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock content1 %}

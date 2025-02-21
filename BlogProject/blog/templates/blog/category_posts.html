@@ -2,38 +2,35 @@
 {% load static %}
 
 {% block content1 %}
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="fw-bold text-primary">{{ category.name }} Category</h1>
-        <p class="text-secondary fs-5">Browse through the latest posts in the {{ category.name }} category.</p>
-    </div>
-
-    <div class="row gy-4">
-        {% if posts %}
-            {% for post in posts %}
-                <div class="col-md-4 d-flex">
-                    <div class="card shadow-sm border-0 w-100">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="card-title fw-bold text-dark">{{ post.title }}</h3>
-                            {% if post.image %}
-                            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
-                            {% endif %}
-                            <p class="card-text text-muted flex-grow-1">
-                                {{ post.content|truncatewords:110 }}
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-muted small">Published on {{ post.date }}</span>
-                                <a href="{% url 'readblog' post.id %}" class="btn btn-primary btn-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <div class="col-12">
-                <p class="text-muted">No posts available in this category yet. Stay tuned!</p>
-            </div>
+<div class="container content-wrapper py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">{{ category.name }} Category</h1>
+    <p class="fs-5" style="color: #a8b5d4;">Discover the latest in {{ category.name }}</p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% if posts %}
+    {% for post in posts %}
+    <div class="col">
+      <div class="card border-0 mb-4" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" class="card-img-top rounded-top" style="border-radius: 15px 15px 0 0; height: 250px; object-fit: cover;" alt="{{ post.title }}">
         {% endif %}
+        <div class="card-body p-4">
+          <h3 class="card-title fw-bold" style="color: #4a6ea8; font-size: 1.8rem;">{{ post.title }}</h3>
+          <p class="card-text" style="color: #a8b5d4;">{{ post.content|truncatewords:30 }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="small" style="color: #a8b5d4;">Published on {{ post.date }}</span>
+            <a href="{% url 'readblog' post.id %}" class="btn btn-outline-light btn-sm rounded-pill" style="border-color: #4a6ea8; color: #4a6ea8;">Read More</a>
+          </div>
+        </div>
+      </div>
     </div>
+    {% endfor %}
+    {% else %}
+    <div class="col-12">
+      <p class="text-center" style="color: #a8b5d4;">No posts available in this category yet. Stay tuned!</p>
+    </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock content1 %}

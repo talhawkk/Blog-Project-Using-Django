@@ -2,41 +2,38 @@
 {% load static %}
 
 {% block content1 %}
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1 class="text-center my-5 fw-bold text-primary" id="author">Login</h1>
-
-            <form action="" method="post" class="p-4 bg-light rounded shadow-lg" novalidate>
-                {% csrf_token %}
-                {% for i in form %}
-                <div class="mb-4">
-                    <label for="{{ i.id_for_label }}" class="form-label text-secondary fw-bold">{{ i.label }}</label>
-                    <div class="form-control-container">
-                        {{ i }}
-                    </div>
-                    {% if i.errors %}
-                    <div class="text-danger mt-2 small">{{ i.errors }}</div>
-                    {% endif %}
-                </div>
-                {% endfor %}
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-purple btn-lg fw-bold shadow-sm">Submit</button>
-                </div>
-            </form>
-
-            {% if messages %}
-            <div class="mt-4">
-                {% for message in messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
+<div class="container content-wrapper py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center mb-5 fw-bold" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Login</h1>
+      <form action="" method="post" class="p-4 rounded" style="background: #2d3e50; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border-radius: 15px;">
+        {% csrf_token %}
+        {% for i in form %}
+        <div class="mb-4">
+          <label for="{{ i.id_for_label }}" class="form-label fw-bold" style="color: #4a6ea8;">{{ i.label }}</label>
+          <div class="form-control-container">
+            {{ i }}
+          </div>
+          {% if i.errors %}
+          <div class="text-danger mt-2 small" style="background: rgba(74, 110, 168, 0.2); padding: 5px 10px; border-radius: 5px;">{{ i.errors }}</div>
+          {% endif %}
         </div>
+        {% endfor %}
+        <div class="d-grid">
+          <button type="submit" class="btn btn-lg rounded-pill fw-bold" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Login</button>
+        </div>
+      </form>
+      {% if messages %}
+      <div class="mt-4">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
+  </div>
 </div>
 {% endblock content1 %}

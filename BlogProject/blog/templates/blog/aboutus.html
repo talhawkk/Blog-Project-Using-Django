@@ -2,88 +2,75 @@
 {% load static %}
 
 {% block content1 %}
-<div class="container py-5">
-    <div class="text-center mb-5">
-        <h1 class="fw-bold text-primary">About Me</h1>
-        <p class="text-secondary fs-5">Learn more about who I am and what I do!</p>
-    </div>
+<div class="container content-wrapper py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">About TALHAWKK</h1>
+    <p class="fs-5" style="color: #a8b5d4;">Our mission, our story</p>
+  </div>
 
-    <div class="row align-items-center gy-4">
-        <div class="col-md-3">
-            <img src="{% static 'blog/images/imag3.jpg' %}" alt="About Us" class="img-fluid rounded shadow-sm">
-        </div>
-
-        <div class="col-md-9">
-            <h2 class="fw-bold text-dark">Welcome to TALHAWKK's Blog!</h2>
-            <p class="text-muted lead text-justify">
-                At TALHAWKK's Blog, we aim to provide valuable insights, latest updates, and engaging content across a variety of categories, including Technology, Lifestyle, Travel, and more. Our mission is to inspire and educate our readers while keeping them informed about the trends that matter most.
-            </p>
-            <p class="text-muted">
-                This platform is created with love and passion to build a community where knowledge is shared and creativity is celebrated. We believe in the power of stories and information to bring about positive change and create meaningful connections.
-            </p>
-            <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Explore Blog</a>
-        </div>
+  <div class="row align-items-center gy-5">
+    <div class="col-md-5">
+      <img src="{% static 'blog/images/imag3.jpg' %}" alt="About Us" class="img-fluid rounded" style="border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
     </div>
-
-    <div class="row mt-5 gy-4">
-        <div class="col-md-4">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body">
-                    <h3 class="card-title fw-bold text-dark">Our Vision</h3>
-                    <p class="text-muted">
-                        To be a leading platform for knowledge sharing and a trusted source of information for readers worldwide.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body">
-                    <h3 class="card-title fw-bold text-dark">Our Mission</h3>
-                    <p class="text-muted">
-                        To provide high-quality, engaging, and diverse content that informs, inspires, and entertains our audience.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body">
-                    <h3 class="card-title fw-bold text-dark">Our Values</h3>
-                    <p class="text-muted">
-                        Creativity, authenticity, and a commitment to delivering value to our readers.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-7">
+      <h2 class="fw-bold" style="color: #4a6ea8;">Welcome to TALHAWKK's Blog!</h2>
+      <p class="lead" style="color: #a8b5d4; text-align: justify;">
+        TALHAWKK is your gateway to a world of Technology, Lifestyle, Travel, and more. We’re driven by a passion to create content that inspires, informs, and connects with readers globally.
+      </p>
+      <p style="color: #a8b5d4;">
+        This platform is built with dedication—a space where stories thrive, and ideas find a home. Join us on this journey!
+      </p>
+      <a href="{% url 'home' %}" class="btn btn-outline-light btn-lg rounded-pill" style="border-color: #4a6ea8; color: #4a6ea8;">Explore Blog</a>
     </div>
+  </div>
 
-    <div class="mt-5">
-        <h2 class="fw-bold text-center text-primary">Meet Our Team</h2>
-        <p class="text-secondary text-center fs-5">The passionate individuals behind the scenes</p>
-        <div class="row gy-4 mt-4">
-            <div class="col-md-4 text-center">
-                <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
-                <h5 class="fw-bold">Talha Abbas</h5>
-                <p class="text-muted small">Founder & Content Creator</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
-                <h5 class="fw-bold">Talha Abbas</h5>
-                <p class="text-muted small">Editor & Strategist</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle shadow-sm mb-3" width="120" height="120">
-                <h5 class="fw-bold">Talha Abbas</h5>
-                <p class="text-muted small">Designer & Developer</p>
-            </div>
+  <div class="row mt-5 gy-5">
+    <div class="col-md-4">
+      <div class="card border-0 h-100" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <div class="card-body text-center p-4">
+          <h3 class="card-title fw-bold" style="color: #4a6ea8;">Our Vision</h3>
+          <p style="color: #a8b5d4;">To unite minds through impactful storytelling.</p>
         </div>
+      </div>
     </div>
+    <div class="col-md-4">
+      <div class="card border-0 h-100" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <div class="card-body text-center p-4">
+          <h3 class="card-title fw-bold" style="color: #4a6ea8;">Our Mission</h3>
+          <p style="color: #a8b5d4;">To deliver content that captivates and educates.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-0 h-100" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <div class="card-body text-center p-4">
+          <h3 class="card-title fw-bold" style="color: #4a6ea8;">Our Values</h3>
+          <p style="color: #a8b5d4;">Creativity, authenticity, and community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div class="text-center mt-5">
-        <h3 class="fw-bold text-dark">Ready to Dive In?</h3>
-        <p class="text-muted fs-5">Explore our blog and join the conversation!</p>
-        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Visit Blog</a>
+  <div class="mt-5">
+    <h2 class="fw-bold text-center" style="color: #4a6ea8;">Meet Our Team</h2>
+    <p class="text-center fs-5" style="color: #a8b5d4;">The visionaries behind TALHAWKK</p>
+    <div class="row gy-5 mt-4">
+      <div class="col-md-4 text-center">
+        <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <h5 class="fw-bold" style="color: #4a6ea8;">Talha Abbas</h5>
+        <p class="small" style="color: #a8b5d4;">Founder & Content Creator</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <h5 class="fw-bold" style="color: #4a6ea8;">Talha Abbas</h5>
+        <p class="small" style="color: #a8b5d4;">Editor & Strategist</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'blog/images/imag1.png' %}" alt="Team Member" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+        <h5 class="fw-bold" style="color: #4a6ea8;">Talha Abbas</h5>
+        <p class="small" style="color: #a8b5d4;">Designer & Developer</p>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock content1 %}

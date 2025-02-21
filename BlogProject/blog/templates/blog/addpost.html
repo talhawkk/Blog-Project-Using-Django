@@ -1,26 +1,24 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class="container my-5">
-    <div class="row">
-        <div class="col-lg-12 offset-lg-2">
-            <h3 class="my-5">Add New Post</h3>
-            <form action="" method="POST" enctype="multipart/form-data" novalidate>
-                {% csrf_token %}
-                {% for i in form %}
-                <div class="form-group mb-3">
-                    <label for="{{ i.id_for_label }}" class="form-label">{{ i.label }}</label>
-                    {{ i }}
-                    {% if i.errors %}
-                    <small class="text-danger">{{ i.errors }}</small>
-                    {% endif %}
-                </div>
-                {% endfor %}
-                <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary">Add Post</button>
-                    <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
-                </div>
-            </form>
-        </div>
-    </div>
+<div class="container content-wrapper py-5">
+  <h3 class="mb-5 fw-bold" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Add New Post</h3>
+  <div class="card border-0 p-5" style="background: #2d3e50; border-radius: 15px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);">
+    <form action="" method="POST" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {% for i in form %}
+      <div class="form-group mb-4">
+        <label for="{{ i.id_for_label }}" class="form-label fw-bold" style="color: #4a6ea8;">{{ i.label }}</label>
+        {{ i }}
+        {% if i.errors %}
+        <small class="text-danger" style="background: rgba(74, 110, 168, 0.2); padding: 5px 10px; border-radius: 5px;">{{ i.errors }}</small>
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn rounded-pill px-4 py-2" style="background: #4a6ea8; color: #fff; transition: all 0.3s ease;">Add Post</button>
+        <a href="{% url 'dashboard' %}" class="btn rounded-pill px-4 py-2" style="background: #5c7db8; color: #fff; transition: all 0.3s ease;">Cancel</a>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock content %}
