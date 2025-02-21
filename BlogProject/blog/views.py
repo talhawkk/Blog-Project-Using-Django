@@ -8,7 +8,7 @@ from .models import Post,Category
 from django.contrib.auth.models import Group
 # Create your views here.
 def home(request):
-    post=Post.objects.all()
+    post=Post.objects.all().order_by('-date') 
     categories = Category.objects.all()
     return render(request, 'blog/home.html',{'posts':post,'categories':categories})
 
@@ -23,7 +23,7 @@ def contactus(request):
 def dashboard(request):
     if request.user.is_authenticated:
         categories = Category.objects.all()
-        post=Post.objects.all()
+        post=Post.objects.all().order_by('-date') 
         user=request.user
         full_name=user.get_full_name()
         gps=user.groups.all()
