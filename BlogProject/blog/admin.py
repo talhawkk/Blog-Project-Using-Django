@@ -4,6 +4,6 @@ from .models import Post, Category
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'category','title', 'content']
+    list_display = ['id', 'category','title', 'image' , 'content']
 
 admin.site.register(Category)

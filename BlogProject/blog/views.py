@@ -79,7 +79,7 @@ def edit(request,id):
     if request.user.is_authenticated:
         if request.method=='POST':
             pi=Post.objects.get(pk=id)
-            form=PostForm(request.POST,instance=pi)
+            form=PostForm(request.POST, request.FILES ,instance=pi)
             if form.is_valid():
                 form.save()
                 messages.success(request,'Your changes has been updated')
@@ -94,7 +94,7 @@ def edit(request,id):
 def addpost(request):
     if request.user.is_authenticated:
         if request.method=='POST':
-            form=PostForm(request.POST)
+            form=PostForm(request.POST, request.FILES)
             if form.is_valid():
                 # form=form.cleaned_data()
                 form.save()
