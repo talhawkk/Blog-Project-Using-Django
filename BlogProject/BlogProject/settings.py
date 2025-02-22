@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4ov%e849l7s773^cvok+6zvhp!-2v(3i542cbz0f#cy2ybl5dq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['talhawkkblog.up.railway.app', '127.0.0.1', 'localhost']
 
