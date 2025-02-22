@@ -7,17 +7,6 @@ body{
   background-color: #25292f;  
   
 }
-.form-text {
-  color: #f1f4f7;
-  
-}
-.form {
-  align-items: center;
-}
-.form-control {
-  background-color: #25292f;
-  color: #f1f4f7;
-}
 
 
 
@@ -31,9 +20,9 @@ body{
 
 
 
-body {
+/* body {
   background-color: #f4f7fa; 
-}
+} */
 
 /* .navbar {
   background-color: white !important; 

@@ -136,7 +136,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
-    'https://blog-project-using-django-production.up.railway.app',  # Add your production URL here
+    'https://talhawkkblog.up.railway.app/',  # Add your production URL here
 ]
 import os
 
