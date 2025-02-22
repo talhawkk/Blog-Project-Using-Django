@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4ov%e849l7s773^cvok+6zvhp!-2v(3i542cbz0f#cy2ybl5dq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blog-project-using-django-production.up.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['talhawkkblog.up.railway.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -136,7 +136,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
-    'https://talhawkkblog.up.railway.app/',  # Add your production URL here
+    'https://talhawkkblog.up.railway.app/', 
 ]
 import os
 
