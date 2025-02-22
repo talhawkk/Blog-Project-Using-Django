@@ -47,8 +47,8 @@
             </tr>
           </thead>
           <tbody>
-            {% if posts|length > 3 %}
-              {% for post in posts|slice:":3" %}
+            {% if posts|length > 4 %}
+              {% for post in posts|slice:":4" %}
               <tr class="text-center align-middle post-row" style="border-bottom: 1px solid #415a77; display: table-row;">
                 <td>{{ post.id }}</td>
                 <td>{{ post.category }}</td>

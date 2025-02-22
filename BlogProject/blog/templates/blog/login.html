@@ -5,6 +5,15 @@
 <div class="container content-wrapper py-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
+      <!-- Professional Message for Admin/Author Login -->
+      <div class="alert alert-info text-center mb-4" style="background: #2d3e50; border: 1px solid #4a6ea8; color: #a8b5d4; border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);">
+        <p class="mb-0" style="font-size: 1.2rem; font-weight: 600;">
+          Access Restricted: Only Admins and Authors can log in. If you want to become an author, please 
+          <a href="{% url 'contactus' %}" class="text-decoration-none" style="color: #4a6ea8; text-shadow: 0 0 5px rgba(74, 110, 168, 0.3); transition: all 0.3s ease;">contact us</a> 
+          and you will be provided with credentials.
+        </p>
+      </div>
+
       <h1 class="text-center mb-5 fw-bold" style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a6ea8; text-shadow: 0 0 10px rgba(74, 110, 168, 0.3);">Login</h1>
       <form action="" method="post" class="p-4 rounded" style="background: #2d3e50; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); border-radius: 15px;">
         {% csrf_token %}

@@ -1,7 +1,7 @@
 body{
   background-color: #2a2f35;
   font-family: 'Nunito', sans-serif;
-  color: #f1f4f7;
+  /* color: #f1f4f7; */
 }
 .jumbo-color {
   background-color: #25292f;  
@@ -30,22 +30,21 @@ body{
 }
 
 
-/* login and signup forms k liye css */
 
 body {
   background-color: #f4f7fa; 
 }
 
-.navbar {
+/* .navbar {
   background-color: white !important; 
   border-bottom: 1px solid #eee; 
-}
+} */
 
 .form-control-container input,
 .form-control-container select,
 .form-control-container textarea {
-  background-color: #f9f9f9; 
-  border: 1px solid #ddd; 
+  /* background-color: #f9f9f9; 
+  border: 1px solid #ddd;  */
   border-radius: 10px;
   padding: 12px 15px;
   width: 100%;
@@ -195,7 +194,6 @@ form textarea:focus {
   outline: none;
 }
 
-/* Placeholder text styling */
 form input::placeholder,
 form textarea::placeholder {
   color: #aaa; /* Lighter placeholder text */

@@ -68,8 +68,8 @@
   <!-- All Blogs Section (Line-wise, Centered, Larger Cards, Limited to 3, Load More Button) -->
   <h1 class="text-center fw-bold mb-5 mt-5" style="font-family: 'Playfair Display', serif; color: #4a6ea8; font-size: 3rem;">All Blog Posts</h1>
   <div class="row g-4 justify-content-center blogs-container">
-    {% if posts|length > 3 %}
-      {% for post in posts|slice:":3" %}
+    {% if posts|length > 4 %}
+      {% for post in posts|slice:":4" %}
       <div class="col-12 col-md-10 blog-post" style="display: block;">
         <div class="card border-0" style="background: #2d3e50; border-radius: 18px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease;">
           {% if post.image %}
