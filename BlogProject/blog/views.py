@@ -43,8 +43,8 @@ def user_signup(request):
             form=SignUpForm(request.POST)
             if form.is_valid():
                 user=form.save()
-                group=Group.objects.get(name='Author')
-                user.groups.add(group)
+                # group=Group.objects.get(name='Author')
+                # user.groups.add(group)
                 messages.success(request,'An Author has been added Successfully')
                 return HttpResponseRedirect('/dashboard/')
         else:
